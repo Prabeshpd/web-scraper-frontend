@@ -8,7 +8,7 @@ export const INITIAL_STATE: UserState = {
   refreshToken: '',
   error: {
     code: '',
-    message: '',
+    message: ''
   },
   isLoggedIn: false,
   user: {
@@ -17,8 +17,8 @@ export const INITIAL_STATE: UserState = {
     name: '',
     id: 0,
     isActive: false,
-    updatedAt: '',
-  },
+    updatedAt: ''
+  }
 };
 
 /**
@@ -36,7 +36,7 @@ export default function (state: UserState = INITIAL_STATE, action: AuthActions):
         user: action.payload.user,
         accessToken: action.payload.accessToken,
         refreshToken: action.payload.refreshToken,
-        isLoggedIn: true,
+        isLoggedIn: true
       };
 
     case LOGIN_USER_REJECTED:
@@ -44,8 +44,8 @@ export default function (state: UserState = INITIAL_STATE, action: AuthActions):
         ...state,
         error: {
           code: action.payload?.response?.data.code,
-          message: action.payload?.response?.data.message,
-        },
+          message: action.payload?.response?.data.message
+        }
       };
 
     case LOGOUT_FULFILLED:
