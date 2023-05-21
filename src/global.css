@@ -1,0 +1,67 @@
+.m-24 {
+    margin: 48px;
+  }
+
+.m-2 {
+  margin: 4px
+}
+  
+  .ml-18 {
+    margin-left: 36px;
+  }
+  
+  .mr-3 {
+    margin-right: 4px;
+  }
+  
+  .mt-5 {
+    margin-top: 10px;
+  }
+  
+  .tabs {
+    border: none;
+  }
+  
+  
+  .tabs-title>a {
+    color: grey;
+  }
+  
+  .custom-button {
+    color: black !important;
+  }
+  
+  .tabs-title>a[aria-selected=true] {
+    color: black;
+    background: none;
+  }
+  
+  .tabs-content {
+    border: none;
+  }
+  
+  .mln-16 {
+    margin-left: -16px;
+  }
+  
+  .mln-4 {
+    margin-left: -4px;
+  }
+  
+  .callout {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+  
+  .no-border {
+    border: none !important;
+  }
+  
+  .empty-screen {
+    height: 400px;
+    width: inherit;
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
