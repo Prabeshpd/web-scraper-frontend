@@ -6,13 +6,13 @@ export const INITIAL_STATE: TagState = {
   tags: [],
   error: {
     code: '',
-    message: '',
+    message: ''
   },
   meta: {
     perPage: 0,
     currentPage: 0,
-    totalCount: 0,
-  },
+    totalCount: 0
+  }
 };
 
 export default function (state: TagState = INITIAL_STATE, action: TagActions): TagState {
@@ -21,7 +21,7 @@ export default function (state: TagState = INITIAL_STATE, action: TagActions): T
       return {
         ...state,
         tags: action.payload.data,
-        meta: { ...state.meta, ...action.payload.metadata },
+        meta: { ...state.meta, ...action.payload.metadata }
       };
     }
 
@@ -31,8 +31,8 @@ export default function (state: TagState = INITIAL_STATE, action: TagActions): T
         ...state,
         error: {
           code: action.payload?.response?.data.code,
-          message: action.payload?.response?.data.message,
-        },
+          message: action.payload?.response?.data.message
+        }
       };
 
     default:

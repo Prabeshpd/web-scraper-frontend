@@ -6,7 +6,7 @@ import {
   FETCH_TAGS_REJECTED,
   UPLOAD_TAGS_FULFILLED,
   UPLOAD_TAGS_PENDING,
-  UPLOAD_TAGS_REJECTED,
+  UPLOAD_TAGS_REJECTED
 } from '../../actions/tag';
 
 export const INITIAL_STATE: TagState = {
@@ -15,7 +15,7 @@ export const INITIAL_STATE: TagState = {
   isFetchTagsFailed: false,
   isLoadingFetchTags: false,
   isLoadingUploadTags: false,
-  isUploadTagsFailed: false,
+  isUploadTagsFailed: false
 };
 
 export default function login(state: TagState = INITIAL_STATE, action: TagActions): TagState {
@@ -23,13 +23,13 @@ export default function login(state: TagState = INITIAL_STATE, action: TagAction
     case FETCH_TAGS_PENDING:
       return {
         ...state,
-        isLoadingFetchTags: true,
+        isLoadingFetchTags: true
       };
 
     case FETCH_TAGS_FULFILLED:
       return {
         ...state,
-        isLoadingFetchTags: false,
+        isLoadingFetchTags: false
       };
 
     case FETCH_TAGS_REJECTED:
@@ -38,19 +38,19 @@ export default function login(state: TagState = INITIAL_STATE, action: TagAction
         isLoadingFetchTags: false,
         isFetchTagsFailed: true,
         error: action.payload?.response?.data,
-        errorCode: action.payload?.response?.data.code,
+        errorCode: action.payload?.response?.data.code
       };
 
     case UPLOAD_TAGS_PENDING:
       return {
         ...state,
-        isLoadingUploadTags: true,
+        isLoadingUploadTags: true
       };
 
     case UPLOAD_TAGS_FULFILLED:
       return {
         ...state,
-        isLoadingUploadTags: false,
+        isLoadingUploadTags: false
       };
 
     case UPLOAD_TAGS_REJECTED:
@@ -59,7 +59,7 @@ export default function login(state: TagState = INITIAL_STATE, action: TagAction
         isLoadingUploadTags: false,
         isUploadTagsFailed: true,
         error: action.payload?.response?.data,
-        errorCode: action.payload?.response?.data.code,
+        errorCode: action.payload?.response?.data.code
       };
 
     default:
