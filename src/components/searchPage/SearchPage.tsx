@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 import { fetchSearchResults } from '../../actions/search';
 
@@ -32,7 +34,10 @@ const SearchPage = (props: InjectedProps) => {
       const queryParams = { maxRows: 10, currentPage: pageNumber };
       await fetchSearchResults(queryParams);
     }
-    fetchSearchResultCount().catch((err) => console.log(err));
+    fetchSearchResultCount().catch((err) => {
+      toast.error('Failed to load the search');
+      console.log(err);
+    });
   }, [pageNumber]);
 
   const onRowClick = (id: number) => {
@@ -44,33 +49,34 @@ const SearchPage = (props: InjectedProps) => {
     <div className="container w-100">
       <div className="callout m-8">
         <h3>Search Results</h3>
-        {!isLoadingFetchSearchResults && (
-          <table>
-            <thead>
-              <tr>
-                <th>Total Ads Count</th>
-                <th>Total Links Count</th>
-                <th>Stat Result</th>
-              </tr>
-            </thead>
-            <tbody>
-              {(searchResults.length &&
-                searchResults.map((result) => {
-                  return (
-                    <tr
-                      onClick={() => {
-                        onRowClick(result.id);
-                      }}
-                    >
-                      <td>{result.adWordsCount}</td>
-                      <td>{result.linksCount}</td>
-                      <td>{result.totalResults}</td>
-                    </tr>
-                  );
-                })) || <tr>No Data to show yet.</tr>}
-            </tbody>
-          </table>
-        )}
+        {!isLoadingFetchSearchResults &&
+          ((
+            <table>
+              <thead>
+                <tr>
+                  <th>Total Ads Count</th>
+                  <th>Total Links Count</th>
+                  <th>Stat Result</th>
+                </tr>
+              </thead>
+              <tbody>
+                {(searchResults.length &&
+                  searchResults.map((result) => {
+                    return (
+                      <tr
+                        onClick={() => {
+                          onRowClick(result.id);
+                        }}
+                      >
+                        <td>{result.adWordsCount}</td>
+                        <td>{result.linksCount}</td>
+                        <td>{result.totalResults}</td>
+                      </tr>
+                    );
+                  })) || <tr>No Data to show yet.</tr>}
+              </tbody>
+            </table>
+          ) || <ClipLoader />)}
         <Pagination
           totalPageNumber={Math.ceil(meta.totalCount / meta.perPage)}
           pageLimit={meta.perPage}
