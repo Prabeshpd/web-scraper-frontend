@@ -37,7 +37,7 @@ export async function login(payload: LoginRequest): Promise<LoginResponse> {
 
   return {
     ...data.data,
-    sessionStartedOn: new Date().toString()
+    sessionStartedOn: new Date().toString(),
   };
 }
 
@@ -57,7 +57,7 @@ export function refreshAccessToken(): Promise<AxiosPromise<any>> {
     isRefreshTokenFetching = true;
 
     const params = {
-      refreshToken
+      refreshToken,
     };
 
     refreshTokenResponse = http
@@ -105,7 +105,7 @@ export async function logout({ force }: { force: boolean }): Promise<LogoutRespo
     }
 
     return {
-      ...response.data
+      ...response.data,
     };
   }
 

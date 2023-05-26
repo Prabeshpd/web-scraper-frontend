@@ -9,7 +9,7 @@ export const INITIAL_STATE: LoginState = {
   isLoading: false,
   showError: false,
   isLoginFailed: false,
-  isTokenVerified: false
+  isTokenVerified: false,
 };
 
 /**
@@ -24,13 +24,13 @@ export default function login(state: LoginState = INITIAL_STATE, action: AuthAct
     case LOGIN_USER_PENDING:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
 
     case LOGIN_USER_FULFILLED:
       return {
         ...state,
-        isLoading: false
+        isLoading: false,
       };
 
     case LOGIN_USER_REJECTED:
@@ -39,19 +39,19 @@ export default function login(state: LoginState = INITIAL_STATE, action: AuthAct
         isLoading: false,
         isLoginFailed: true,
         error: action.payload?.response?.data,
-        errorCode: action.payload?.response?.data.code
+        errorCode: action.payload?.response?.data.code,
       };
 
     case LOGOUT_PENDING:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
 
     case LOGOUT_FULFILLED:
       return {
         ...state,
-        isLoading: false
+        isLoading: false,
       };
 
     default:
