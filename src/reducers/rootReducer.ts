@@ -7,7 +7,7 @@ import ui from './ui';
  */
 const rootReducer = combineReducers({
   data,
-  ui
+  ui,
 });
 
 /**

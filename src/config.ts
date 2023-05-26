@@ -10,7 +10,7 @@ export interface Config {
     createUser: string;
     uploadTags: string;
     getTags: string;
-    getSearchResults: string
+    getSearchResults: string;
     getSearchResultById: string;
   };
 }
@@ -33,8 +33,8 @@ const config: Config = {
     uploadTags: '/tags',
     getTags: '/tags',
     getSearchResults: '/searchResults',
-    getSearchResultById: '/searchResults/:id'
-  }
+    getSearchResultById: '/searchResults/:id',
+  },
 };
 
 export default config;

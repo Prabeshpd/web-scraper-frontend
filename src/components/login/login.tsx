@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import LoginForm from './loginForm';
 
@@ -29,12 +30,13 @@ function Login(props: StatePropsInterface & DispatchPropsInterface) {
     try {
       await loginUser(payload);
     } catch (err) {
+      toast.error('Login Failed.');
       console.log(err);
     }
   };
 
   if (isLoggedIn) {
-    return <Navigate to="/beers" replace={true} />;
+    return <Navigate to="/app" replace={true} />;
   }
 
   return (
