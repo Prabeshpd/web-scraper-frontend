@@ -3,7 +3,7 @@ import { useReducer } from 'react';
 export enum PAGINATION_CHANGE {
   GOTO = 'GOTO',
   PREV = 'PREV',
-  NEXT = 'NEXT',
+  NEXT = 'NEXT'
 }
 
 export interface PageProps {
@@ -23,7 +23,7 @@ function usePageTransfer(pageProps: PageProps) {
         case PAGINATION_CHANGE.GOTO:
           return {
             ...state,
-            pageNumber: action.payload,
+            pageNumber: action.payload
           };
         case PAGINATION_CHANGE.PREV:
           return handlePageChange(state, (action.state = PAGINATION_CHANGE.PREV), totalPageNumber);
@@ -35,7 +35,7 @@ function usePageTransfer(pageProps: PageProps) {
     },
     {
       pageNumber: pageProps.pageNo,
-      totalPageNumber,
+      totalPageNumber
     }
   );
 
