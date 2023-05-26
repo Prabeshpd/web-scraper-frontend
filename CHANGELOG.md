@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/Prabeshpd/web-scraper-frontend/compare/web_scraper_frontend@1.1.0...web_scraper_frontend@1.2.0) (2023-05-26)
+
+
+### Features
+
+* add search pages action ([d20750e](https://github.com/Prabeshpd/web-scraper-frontend/commit/d20750e379d5fb526e081f88d18eb3ead142b8e5))
+* add search pages to flow ([0270452](https://github.com/Prabeshpd/web-scraper-frontend/commit/0270452a5004f278720072809fafd0e224e58dff))
+* add upload file flow ([d196be5](https://github.com/Prabeshpd/web-scraper-frontend/commit/d196be54f8f23f871ddef1c539e9eeb8e2974cbd))
+
 # [1.1.0](https://github.com/Prabeshpd/web-scraper-frontend/compare/web_scraper_frontend@1.0.0...web_scraper_frontend@1.1.0) (2023-05-26)
 
 
