@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 import AppState from '../../types/state/AppState';
 import { SearchResult } from '../../types/Search';
@@ -27,22 +29,27 @@ const ResultDetail = (props: InjectedProps) => {
       await fetchResult(+id);
     }
 
-    fetchRecord().catch((err) => console.log(err));
+    fetchRecord().catch((err) => {
+      toast.error('Failed to load the search result');
+      console.log(err);
+    });
   }, []);
 
-  if (isLoadingSearchResult) return <div>Loading</div>;
+  if (isLoadingSearchResult) return <ClipLoader />;
   return (
-    <div className="card">
-      <div className="card-divider">
-        <h4>Search Detail</h4>
-      </div>
-      <div className="card-section">
-        <p>TotalAdsCount: {result.adWordsCount}</p>
-        <p>StatsResult: {result.totalResults}</p>
-        <p>TotalLinksCount: {result.linksCount}</p>
-        <div>
-          <span>Html Content</span>
-          {result.htmlPage.substring(0, 400)}
+    <div className="container w-100">
+      <div className="callout m-8">
+        <div className="card-divider">
+          <h4>Search Detail</h4>
+        </div>
+        <div className="card-section">
+          <p>TotalAdsCount: {result.adWordsCount}</p>
+          <p>StatsResult: {result.totalResults}</p>
+          <p>TotalLinksCount: {result.linksCount}</p>
+          <div>
+            <span>Html Content</span>
+            {result.htmlPage}
+          </div>
         </div>
       </div>
     </div>

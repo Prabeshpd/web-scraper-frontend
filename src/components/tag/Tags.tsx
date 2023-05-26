@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 import { uploadTags, fetchTags } from '../../actions/tag';
 
@@ -38,7 +40,7 @@ const TagsPage = (props: InjectedProps) => {
       await fetchTags(queryParams);
     }
 
-    fetchTagRecords().catch((err) => console.log(err));
+    fetchTagRecords().catch((err) => toast.error('Failed to load the results'));
   }, [pageNumber]);
 
   const onTagOpen = async (id: number) => {
@@ -47,7 +49,15 @@ const TagsPage = (props: InjectedProps) => {
   };
 
   const onUpload = async (formData: FormData) => {
-    await uploadTags(formData);
+    try {
+      await uploadTags(formData);
+      toast.success('File Uploaded successfully');
+    } catch (err) {
+      toast.error('Unable to upload file');
+    }
+    const queryParams = { maxRows: 10, currentPage: pageNumber };
+
+    await fetchTags(queryParams);
   };
   return (
     <>
@@ -60,7 +70,7 @@ const TagsPage = (props: InjectedProps) => {
         />
         <div className="callout m-8">
           <h3>Tags</h3>
-          {!isLoadingFetchTags && (
+          {(!isLoadingFetchTags && (
             <table>
               <thead>
                 <tr>
@@ -87,7 +97,7 @@ const TagsPage = (props: InjectedProps) => {
                   })) || <tr>No Data to show yet.</tr>}
               </tbody>
             </table>
-          )}
+          )) || <ClipLoader />}
           <Pagination
             totalPageNumber={Math.ceil(meta.totalCount / meta.perPage)}
             pageLimit={meta.perPage}
