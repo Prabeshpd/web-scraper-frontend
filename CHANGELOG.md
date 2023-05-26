@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/Prabeshpd/web-scraper-frontend/compare/web_scraper_frontend@1.2.0...web_scraper_frontend@1.3.0) (2023-05-26)
+
+
+### Bug Fixes
+
+* fix the interceptor for file upload ([1a2705a](https://github.com/Prabeshpd/web-scraper-frontend/commit/1a2705af8497a67bab38af09fd7b3e18646fc8bf))
+
+
+### Features
+
+* add loader for the loading state ([2ea28dd](https://github.com/Prabeshpd/web-scraper-frontend/commit/2ea28ddb8860715a0e2a74262d63008ff71e1a47))
+
 # [1.2.0](https://github.com/Prabeshpd/web-scraper-frontend/compare/web_scraper_frontend@1.1.0...web_scraper_frontend@1.2.0) (2023-05-26)
 
 
