@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Prabeshpd/web-scraper-frontend/compare/web_scraper_frontend@1.0.0...web_scraper_frontend@1.1.0) (2023-05-26)
+
+
+### Features
+
+* add test for the project ([9a6827c](https://github.com/Prabeshpd/web-scraper-frontend/commit/9a6827c1418c805c7be1f4603c009723ab4ec51e))
+
 # 1.0.0 (2023-05-21)
 
 
