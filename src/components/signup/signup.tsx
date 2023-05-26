@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import SignupForm from './signupForm';
 
@@ -18,9 +19,11 @@ export function SignUp(props: DispatchPropsInterface) {
   const handleFormSubmit = async (payload: SignupPayload) => {
     try {
       await createUser(payload);
+      toast.success('User is successfully created. Please log in');
       navigate('/login');
     } catch (err) {
-      console.log(err);
+      console.log({ err });
+      toast.error('Failed to create user');
     }
   };
 
