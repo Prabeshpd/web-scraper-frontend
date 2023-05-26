@@ -10,7 +10,6 @@ interface StatePropsInterface {
 
 function PrivateRouteOutlet(props: StatePropsInterface) {
   const { isLoggedIn } = props;
-
   return isLoggedIn ? <Outlet /> : <Navigate to="/login" />;
 }
 

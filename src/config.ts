@@ -8,13 +8,17 @@ export interface Config {
     logout: string;
     verifyToken: string;
     createUser: string;
+    uploadTags: string;
+    getTags: string;
+    getSearchResults: string
+    getSearchResultById: string;
   };
 }
 
 const config: Config = {
   nodeEnv: process.env.NODE_ENV,
   env: process.env.REACT_APP_ENV || 'dev',
-  baseURI: `${process.env.REACT_APP_API_BASE_URI}`,
+  baseURI: 'http://localhost:3000/api/v1',
   endpoints: {
     // Auth
     login: '/auth/login',
@@ -23,7 +27,13 @@ const config: Config = {
     verifyToken: '/auth/verifyToken',
 
     //User
-    createUser: '/users'
+    createUser: '/users',
+
+    //results
+    uploadTags: '/tags',
+    getTags: '/tags',
+    getSearchResults: '/searchResults',
+    getSearchResultById: '/searchResults/:id'
   }
 };
 
