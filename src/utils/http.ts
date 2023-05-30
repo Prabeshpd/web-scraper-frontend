@@ -5,15 +5,8 @@ const http = axios.create({
   baseURL: config.baseURI,
   // withCredentials: true,
   headers: {
-    'Content-Type': 'application/json',
-  },
-});
-
-export const httpFile = axios.create({
-  baseURL: config.baseURI,
-  headers: {
-    'Content-Type': 'multipart/form-data',
-  },
+    'Content-Type': 'application/json'
+  }
 });
 
 export default http;
