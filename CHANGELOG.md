@@ -1,3 +1,11 @@
+# [1.5.0](https://github.com/Prabeshpd/web-scraper-frontend/compare/web_scraper_frontend@1.4.0...web_scraper_frontend@1.5.0) (2023-05-30)
+
+
+### Features
+
+* add modal to render scrape page ([528d129](https://github.com/Prabeshpd/web-scraper-frontend/commit/528d1293e41e91ae3c9e69fdceb63443f7063767))
+* add render feature of scrape html page ([c0d66dd](https://github.com/Prabeshpd/web-scraper-frontend/commit/c0d66dd8e7c69160fd34fe3020129956e08db4e3))
+
 # [1.4.0](https://github.com/Prabeshpd/web-scraper-frontend/compare/web_scraper_frontend@1.3.0...web_scraper_frontend@1.4.0) (2023-05-30)
 
 
