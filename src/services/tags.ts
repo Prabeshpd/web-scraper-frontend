@@ -1,5 +1,5 @@
 import config from '../config';
-import http, { httpFile } from '../utils/http';
+import http from '../utils/http';
 import * as qs from '../utils/queryString';
 import { PageParams } from '../types/Pagination';
 
@@ -11,9 +11,9 @@ export async function getTags(pageParams: PageParams) {
   return data;
 }
 
-export async function uploadTags(file: FormData) {
+export async function uploadTags(payload: { tags: string[] }) {
   const url = config.endpoints.uploadTags;
-  const { data } = await httpFile.post(url, file);
+  const { data } = await http.post(url, payload);
 
   return data;
 }

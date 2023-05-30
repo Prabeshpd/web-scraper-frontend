@@ -22,7 +22,7 @@ interface StatePropsInterface {
 }
 
 interface DispatchPropsInterface {
-  uploadTags: (formData: FormData) => void;
+  uploadTags: (payload: { tags: string[] }) => void;
   fetchTags: (pageParams: PageParams) => void;
 }
 
@@ -48,9 +48,9 @@ const TagsPage = (props: InjectedProps) => {
     navigate(path);
   };
 
-  const onUpload = async (formData: FormData) => {
+  const onUpload = async (tags: string[]) => {
     try {
-      await uploadTags(formData);
+      await uploadTags({ tags });
       toast.success('File Uploaded successfully');
     } catch (err) {
       toast.error('Unable to upload file');
@@ -63,7 +63,7 @@ const TagsPage = (props: InjectedProps) => {
     <>
       <div className="container w-100">
         <FileUploader
-          fileSizeLimit={60000}
+          csvKeyCountLimit={100}
           allowedMimeTypes={['text/csv']}
           isLoading={isLoadingUploadTags}
           onUpload={onUpload}
