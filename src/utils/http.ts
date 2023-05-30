@@ -5,8 +5,8 @@ const http = axios.create({
   baseURL: config.baseURI,
   // withCredentials: true,
   headers: {
-    'Content-Type': 'application/json',
-  },
+    'Content-Type': 'application/json'
+  }
 });
 
 export default http;
