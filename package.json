@@ -19,6 +19,7 @@
     "font-awesome": "^4.7.0",
     "formik": "^2.2.9",
     "foundation-sites": "^6.7.5",
+    "html-react-parser": "^3.0.16",
     "http-status-codes": "^2.2.0",
     "pinterpolate": "^0.2.3",
     "qs": "^6.5.1",
