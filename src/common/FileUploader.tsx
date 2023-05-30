@@ -3,35 +3,54 @@ import { toast } from 'react-toastify';
 import ClipLoader from 'react-spinners/ClipLoader';
 
 interface PropTypes {
-  onUpload: (formData: FormData) => void;
+  onUpload: (tags: string[]) => void;
   allowedMimeTypes: string[];
-  fileSizeLimit: number;
+  csvKeyCountLimit: number;
   isLoading: boolean;
 }
 
 const FileUploader = (props: PropTypes) => {
-  const { onUpload, allowedMimeTypes, fileSizeLimit, isLoading } = props;
+  const { onUpload, allowedMimeTypes, csvKeyCountLimit, isLoading } = props;
+  const [tags, setTags] = React.useState<string[]>([]);
   const [file, setFile] = React.useState<File>();
 
   const onFileAdd = (event: React.FormEvent<HTMLInputElement>) => {
     if (event.currentTarget.files?.length) {
       const currentFile = event.currentTarget.files[0];
-      const fileSize = currentFile.size;
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const text = e.target?.result;
 
-      if (fileSize > fileSizeLimit) {
-        toast.error('File Size limit exceeded');
-      }
+        if (!text || typeof text !== 'string') {
+          toast.error('Unable to upload the file');
+          return;
+        }
 
+        const rows = text.split('\n');
+        if (!rows[rows.length - 1]) rows.pop();
+
+        if (rows.length >= csvKeyCountLimit) {
+          toast.error(`Keys can not be greater than ${csvKeyCountLimit}`);
+          return;
+        }
+
+        if (!rows.length) {
+          toast.error('csv file must contain keys to search');
+          return;
+        }
+
+        setTags(rows);
+      };
+      reader.readAsText(currentFile);
       setFile(currentFile);
     }
   };
 
   const onSubmit = async () => {
-    if (!file) return;
+    if (!tags.length) return;
 
-    const formData = new FormData();
-    formData.append('tags', file, file.name);
-    await onUpload(formData);
+    await onUpload(tags);
+    setTags([]);
     setFile(undefined);
   };
 
