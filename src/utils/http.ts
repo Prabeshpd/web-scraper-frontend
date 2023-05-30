@@ -9,11 +9,4 @@ const http = axios.create({
   },
 });
 
-export const httpFile = axios.create({
-  baseURL: config.baseURI,
-  headers: {
-    'Content-Type': 'multipart/form-data',
-  },
-});
-
 export default http;
