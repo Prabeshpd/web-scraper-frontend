@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/Prabeshpd/web-scraper-frontend/compare/web_scraper_frontend@1.3.0...web_scraper_frontend@1.4.0) (2023-05-30)
+
+
+### Features
+
+* add csv parser validation on clientside ([46a31d0](https://github.com/Prabeshpd/web-scraper-frontend/commit/46a31d052c81427b427e23d544bd6f705e8eefa2))
+
 # [1.3.0](https://github.com/Prabeshpd/web-scraper-frontend/compare/web_scraper_frontend@1.2.0...web_scraper_frontend@1.3.0) (2023-05-26)
 
 
