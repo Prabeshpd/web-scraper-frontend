@@ -12,6 +12,8 @@ import { Tag } from '../../types/Tag';
 import AppState from '../../types/state/AppState';
 import { PageParams, PaginationMeta } from '../../types/Pagination';
 
+import { CSV_SCRAPER_FILE_KEYS_LIMIT } from '../../constants/common';
+
 import FileUploader from '../../common/FileUploader';
 
 interface StatePropsInterface {
@@ -63,7 +65,7 @@ const TagsPage = (props: InjectedProps) => {
     <>
       <div className="container w-100">
         <FileUploader
-          csvKeyCountLimit={100}
+          csvKeyCountLimit={CSV_SCRAPER_FILE_KEYS_LIMIT}
           allowedMimeTypes={['text/csv']}
           isLoading={isLoadingUploadTags}
           onUpload={onUpload}
